@@ -10,7 +10,10 @@ const colors = {
 
 export default function Button({ children, type, className, onClick }: { children: React.ReactNode; type: keyof typeof colors; className?: string; onClick?: MouseEventHandler<HTMLButtonElement> }) {
     return (
-        <button onClick={onClick} className={mc(`py-2.5 px-5 ${colors[type]} rounded-[10px] font-bold text-md`, className, `hover:opacity-80 focus:ring-4 focus:ring-opacity-25 focus:outline-none`)}>
+        <button
+            onClick={onClick}
+            className={mc(`${colors[type]} rounded-[10px] font-bold text-md`, className, `hover:opacity-80 focus:ring-4 focus:ring-opacity-25 focus:outline-none`, "py-2 px-3 md:py-2.5 md:px-5 ")}
+        >
             {children}
         </button>
     );
