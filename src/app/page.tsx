@@ -1,32 +1,75 @@
 "use client";
 import Image from "next/image";
 import Navbar from "./lib/components/navbar";
+import Footer from "./lib/components/footer";
 import Button from "./lib/components/button";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
-import { Navigation, Pagination, Scrollbar, A11y, Grid } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { InView } from "react-intersection-observer";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useEffect, useState } from "react";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
-    const categories = ["Luka Lorem", "Luka Ipsum", "Luka Dolor", "Luka Sit", "Luka Amet", "Luka Consectetur", "Luka Adipiscing", "Luka Elit", "Luka Sed", "Luka Do", "Luka Apa"];
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+        });
+    }, []);
+
+    const categories = ["Luka Sayat", "Luka Baret", "Luka Bakar", "Luka Memar", "Luka Sengat"];
+    const features = [
+        {
+            title: "Tepat Dalam Menangani",
+            description: "Selamat tinggal miskonsepsi medis! Dengan aplikasi LukaRian, kalian bisa menambah wawasan mengenai penanganan luka yang benar dan tepat.",
+            component: (
+                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
+                    <Image data-aos="fade-left" src="/images/svg/selected_options.svg" width={450} height={450} alt="Selected Options by undraw.co"></Image>
+                </div>
+            ),
+        },
+        {
+            title: "Terverifikasi Ahli",
+            description: "Semua artikel yang tersedia disini sudah terverifikasi ahli dan dijamin kepercayaannya. Merasa artikel tidak valid? Laporkan di pusat bantuan.",
+            component: (
+                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
+                    <Image data-aos="fade-left" src="/images/svg/selected_options.svg" width={450} height={450} alt="Selected Options by undraw.co"></Image>
+                </div>
+            ),
+        },
+        {
+            title: "Berbagi Cara Penanganan",
+            description:
+                "Dengan LukaRian kalian bisa berbagi cara penanganan luka yang benar dan tepat. Semua orang bisa berkontribusi untuk membantu orang lain yang nantinya akan diverifikasi validitasnya oleh ahli.",
+            component: (
+                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
+                    <Image data-aos="fade-left" src="/images/svg/selected_options.svg" width={450} height={450} alt="Selected Options by undraw.co"></Image>
+                </div>
+            ),
+        },
+    ];
+
+    const [currentFeature, setCurrentFeature] = useState(0);
+
     return (
         <>
             <Navbar />
-            <div className="h-[5rem]"></div>
-            <section id="hero" className="w-full items-center bg-honeydew">
-                <div className="max-w-screen-xl mx-auto w-full py-8 grid grid-cols-7 justify-between items-start">
+            <section id="hero" className="w-full items-center bg-honeydew py-12 px-4 md:px-0">
+                <div className="max-w-screen-xl mx-auto w-full py-8 grid grid-cols-4 md:grid-cols-7 justify-between items-start">
                     <div className="col-span-4 flex flex-col gap-y-4">
-                        <h1 className="font-bold text-4xl w-96 tracking-wide">Menemanimu Mengatasi Luka Harianmu</h1>
-                        <p>
+                        <h1 className="font-bold text-3xl md:text-4xl w-full md:w-96 tracking-wide">Menemanimu Mengatasi Luka Harianmu</h1>
+                        <p className="w-full text-justify">
                             <span className="font-bold">LukaRian</span> adalah platform yang bertujuan untuk memberikan panduan dan informasi mengenai penanganan pertolongan pertama pada luka-luka
-                            luka-luka umum yang dapat terjadi dalam kehidupan sehari-hari. Dengan LukaRian, Anda dapat mempelajari cara mengobati luka-luka tersebut dengan benar, sehingga dapat
-                            mencegahmencegah agar agar kondisi luka tidak semakin memburuk. Yuk cari tahu lebih lanjut!
+                            luka-luka umum yang dapat terjadi dalam kehidupan sehari-hari.
                         </p>
                         <div>
                             <Button type="success" className="mr-auto">
@@ -39,9 +82,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section id="tabs" className="w-full items-center bg-teagreen">
-                <div className="max-w-screen-xl mx-auto w-full py-5">
-                    <Swiper wrapperClass="px-10 flex items-center" className="!w-100 " modules={[Pagination, Navigation]} spaceBetween={0} slidesPerView={5} navigation>
+            <section id="tabs" className="w-full items-center bg-teagreen px-4 md:px-0">
+                <div className="max-w-screen-xl overflow-x-scroll md:overflow-x-hidden gap-x-2 mx-auto w-full py-5 flex justify-evenly">
+                    {/* <Swiper wrapperClass="px-10 flex items-center" className="!w-100 " modules={[Pagination, Navigation]} spaceBetween={0} slidesPerView={5} navigation>
                         {categories.map((category, i) => (
                             <SwiperSlide key={i}>
                                 <Button type="success" className="whitespace-nowrap">
@@ -49,28 +92,39 @@ export default function Home() {
                                 </Button>
                             </SwiperSlide>
                         ))}
-                    </Swiper>
-                    {/* <div className="flex justify-between items-center w-full gap-x-4">
-                        <div className="">
-                            <Button type="success" className="p-2 rounded-full">
-                                <IconChevronLeft />
-                            </Button>
-                        </div>
-                        <div className="flex flex-wrap gap-x-4 py-2 px-2 overflow-hidden items-center">
-                            {categories.map((category, i) => (
-                                <Button type="success" className="whitespace-nowrap" key={i}>
-                                    {category}
-                                </Button>
-                            ))}
-                        </div>
-                        <div className="">
-                            <Button type="success" className="p-2 rounded-full">
-                                <IconChevronRight />
-                            </Button>
-                        </div>
-                    </div> */}
+                    </Swiper> */}
+                    {categories.map((category, i) => (
+                        <Button key={i} type="success" className="whitespace-nowrap">
+                            {category}
+                        </Button>
+                    ))}
                 </div>
             </section>
+            <section id="features" className="w-full items-center">
+                <div className="h-[10rem]"></div>
+                <div className="max-w-screen-xl mx-auto w-full py-5 justify-between items-start hidden md:flex">
+                    <nav className="sticky top-32">
+                        {features.map((feature, i) => (
+                            <div key={i} className={""}>
+                                <h1 className={`transition-all ease-out duration-300 font-black text-5xl uppercase w-96 tracking-wide ${currentFeature === i ? "text-night" : "text-honeydew"}`}>
+                                    {feature.title}
+                                </h1>
+                            </div>
+                        ))}
+                        <p className="mt-2 text-night">{features[currentFeature].description}</p>
+                    </nav>
+                    <div className="w-full flex flex-col gap-y-5">
+                        {features.map((feature, i) => (
+                            <>
+                                <InView as="div" threshold={0.5} onChange={(inView) => inView && setCurrentFeature(i)} className="w-fit ml-auto overflow-hidden">
+                                    {feature.component}
+                                </InView>
+                            </>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            <Footer />
         </>
     );
 }
