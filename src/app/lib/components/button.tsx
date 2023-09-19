@@ -12,7 +12,7 @@ export default function Button({ children, type, className, onClick }: { childre
     return (
         <button
             onClick={onClick}
-            className={mc(`${colors[type]} rounded-[10px] font-bold text-md`, className, `hover:opacity-80 focus:ring-4 focus:ring-opacity-25 focus:outline-none`, "py-2 px-3 md:py-2.5 md:px-5 ")}
+            className={mc(`${colors[type]} rounded-[10px] font-bold text-md`, `hover:opacity-80 focus:ring-4 focus:ring-opacity-25 focus:outline-none`, "py-2 px-3 md:py-2.5 md:px-5", className)}
         >
             {children}
         </button>
