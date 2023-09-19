@@ -18,6 +18,8 @@ import { useEffect, useState } from "react";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { UndrawSelectedOptions } from "./lib/svg/UndrawSelectedOptions";
+import { UndrawDoctor } from "./lib/svg/UndrawDoctor";
 
 export default function Home() {
     useEffect(() => {
@@ -32,8 +34,8 @@ export default function Home() {
             title: "Tepat Dalam Menangani",
             description: "Selamat tinggal miskonsepsi medis! Dengan aplikasi LukaRian, kalian bisa menambah wawasan mengenai penanganan luka yang benar dan tepat.",
             component: (
-                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
-                    <Image data-aos="fade-left" src="/images/svg/selected_options.svg" width={450} height={450} alt="Selected Options by undraw.co"></Image>
+                <div key={1} data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
+                    <UndrawSelectedOptions />
                 </div>
             ),
         },
@@ -41,8 +43,8 @@ export default function Home() {
             title: "Terverifikasi Ahli",
             description: "Semua artikel yang tersedia disini sudah terverifikasi ahli dan dijamin kepercayaannya. Merasa artikel tidak valid? Laporkan di pusat bantuan.",
             component: (
-                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
-                    <Image data-aos="fade-left" src="/images/svg/selected_options.svg" width={450} height={450} alt="Selected Options by undraw.co"></Image>
+                <div key={2} data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
+                    <UndrawSelectedOptions />
                 </div>
             ),
         },
@@ -51,8 +53,8 @@ export default function Home() {
             description:
                 "Dengan LukaRian kalian bisa berbagi cara penanganan luka yang benar dan tepat. Semua orang bisa berkontribusi untuk membantu orang lain yang nantinya akan diverifikasi validitasnya oleh ahli.",
             component: (
-                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
-                    <Image data-aos="fade-left" src="/images/svg/selected_options.svg" width={450} height={450} alt="Selected Options by undraw.co"></Image>
+                <div key={3} data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
+                    <UndrawSelectedOptions />
                 </div>
             ),
         },
@@ -78,7 +80,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="hidden md:block col-span-3 ml-auto mr-5">
-                        <Image src="/images/svg/Doctor.svg" alt="Doctor" width={350} height={350}></Image>
+                        <UndrawDoctor width={350} height={350} />
                     </div>
                 </div>
             </section>
@@ -116,7 +118,7 @@ export default function Home() {
                     <div className="w-full flex flex-col gap-y-60">
                         {features.map((feature, i) => (
                             <>
-                                <InView as="div" threshold={0.5} onChange={(inView) => inView && setCurrentFeature(i)} className="w-fit ml-auto overflow-hidden">
+                                <InView key={i} as="div" threshold={0.5} onChange={(inView) => inView && setCurrentFeature(i)} className="w-fit ml-auto overflow-hidden">
                                     {feature.component}
                                 </InView>
                             </>
