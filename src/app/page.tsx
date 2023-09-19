@@ -113,7 +113,7 @@ export default function Home() {
                         ))}
                         <p className="mt-2 text-night">{features[currentFeature].description}</p>
                     </nav>
-                    <div className="w-full flex flex-col gap-y-5">
+                    <div className="w-full flex flex-col gap-y-60">
                         {features.map((feature, i) => (
                             <>
                                 <InView as="div" threshold={0.5} onChange={(inView) => inView && setCurrentFeature(i)} className="w-fit ml-auto overflow-hidden">
