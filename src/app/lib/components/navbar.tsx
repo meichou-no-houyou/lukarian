@@ -4,16 +4,16 @@ import Image from "next/image";
 export default function Navbar() {
     return (
         <>
-            <div className="w-full fixed items-center bg-honeydew">
-                <nav className="max-w-screen-xl mx-auto w-full py-4 flex justify-between">
+            <div className="w-full fixed top-0 items-center bg-honeydew z-10">
+                <nav className="max-w-screen-xl mx-auto w-full py-4 px-5 md:px-0 flex justify-between">
                     <div className="flex items-center gap-x-3">
-                        <Image src="/images/icon.svg" width={52} height={52} alt="LukaRian Icon" />
-                        <h1 className="text-asparagus font-bold text-md">
+                        <Image src="/images/icon.svg" className="w-9 h-9 md:w-12 md:h-12" width={52} height={52} alt="LukaRian Icon" />
+                        <h1 className="text-asparagus font-bold text-sm md:text-md">
                             Luka<span className="!text-pistachio">Rian</span>
                         </h1>
                     </div>
                     <div className="flex items-center gap-x-3">
-                        <form className="flex items-center">
+                        <form className="items-center hidden md:flex">
                             <input
                                 className="focus:outline-none focus:ring-2 focus:ring-opacity-40 focus:ring-success h-8 px-2 rounded-l-md bg-teagreen"
                                 type="text"
