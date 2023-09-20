@@ -1,14 +1,8 @@
 "use client";
-import Image from "next/image";
 import Navbar from "./lib/components/navbar";
 import Footer from "./lib/components/footer";
 import Button from "./lib/components/button";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
-
-import { Navigation, Pagination } from "swiper/modules";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { InView } from "react-intersection-observer";
+import Observer from "./lib/components/observer";
 
 // Import Swiper styles
 import "swiper/css";
@@ -24,7 +18,7 @@ import { UndrawDoctor } from "./lib/svg/UndrawDoctor";
 export default function Home() {
     useEffect(() => {
         AOS.init({
-            duration: 1000,
+            duration: 250,
         });
     }, []);
 
@@ -118,9 +112,19 @@ export default function Home() {
                     <div className="w-full flex flex-col gap-y-60">
                         {features.map((feature, i) => (
                             <>
-                                <InView key={i} as="div" threshold={0.5} onChange={(inView) => inView && setCurrentFeature(i)} className="w-fit ml-auto overflow-hidden">
+                                <Observer
+                                    observerOptions={{
+                                        rootMargin: "25px",
+                                        threshold: 0.1,
+                                    }}
+                                    onChange={(inView) => {
+                                        console.log(i, inView);
+                                        inView && setCurrentFeature(i);
+                                    }}
+                                    className="w-fit ml-auto overflow-hidden"
+                                >
                                     {feature.component}
-                                </InView>
+                                </Observer>
                             </>
                         ))}
                     </div>
