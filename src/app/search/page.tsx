@@ -4,7 +4,7 @@ import { IconChevronsRight, IconExternalLink } from "@tabler/icons-react";
 import Link from "next/link";
 import Button from "../lib/components/button";
 
-export default function Profile() {
+export default function Search() {
     const category = "Luka Baret";
     return (
         <>
