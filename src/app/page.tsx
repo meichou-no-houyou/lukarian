@@ -110,7 +110,7 @@ export default function Home() {
             <section id="tabs" className="w-full items-center px-4 md:px-0 mt-5">
                 <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden gap-x-2 mx-auto w-full py-5 flex justify-between px-5">
                     {categories.map((category, i) => (
-                        <Button key={i} type="success" className="whitespace-nowrap">
+                        <Button asAnchor href="/search" key={i} type="success" className="whitespace-nowrap">
                             {category}
                         </Button>
                     ))}
