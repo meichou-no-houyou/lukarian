@@ -17,9 +17,9 @@ import "aos/dist/aos.css";
 
 import { UndrawSelectedOptions } from "./lib/svg/UndrawSelectedOptions";
 import { UndrawDoctor } from "./lib/svg/UndrawDoctor";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Carousel from "./lib/components/carousel";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
 export default function Home() {
     useEffect(() => {
@@ -62,6 +62,29 @@ export default function Home() {
 
     const [currentFeature, setCurrentFeature] = useState(0);
 
+    const [activePageIndex, setActivePageIndex] = useState<number>(0);
+    const carouselContainerRef = useRef<HTMLDivElement | null>(null);
+    const totalPages = 20;
+
+    const scrollToPage = (index: number) => {
+        if (carouselContainerRef.current) {
+            const containerWidth = carouselContainerRef.current.clientWidth;
+            carouselContainerRef.current.scrollLeft = containerWidth * index;
+        }
+    };
+
+    const prevPage = () => {
+        const newIndex = activePageIndex - 1;
+        setActivePageIndex(newIndex < 0 ? totalPages - 1 : newIndex);
+        scrollToPage(newIndex < 0 ? totalPages - 1 : newIndex);
+    };
+
+    const nextPage = () => {
+        const newIndex = activePageIndex + 1;
+        setActivePageIndex(newIndex % totalPages);
+        scrollToPage(newIndex % totalPages);
+    };
+
     return (
         <>
             <Navbar />
@@ -74,7 +97,7 @@ export default function Home() {
                             luka-luka umum yang dapat terjadi dalam kehidupan sehari-hari.
                         </p>
                         <div>
-                            <Button type="success" className="mr-auto">
+                            <Button asAnchor href="/login" type="success" className="mr-auto">
                                 Join Now
                             </Button>
                         </div>
@@ -84,17 +107,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section id="tabs" className="w-full items-center bg-teagreen px-4 md:px-0">
-                <div className="max-w-screen-xl overflow-x-scroll md:overflow-x-hidden gap-x-2 mx-auto w-full py-5 flex justify-evenly">
-                    {/* <Swiper wrapperClass="px-10 flex items-center" className="!w-100 " modules={[Pagination, Navigation]} spaceBetween={0} slidesPerView={5} navigation>
-                        {categories.map((category, i) => (
-                            <SwiperSlide key={i}>
-                                <Button type="success" className="whitespace-nowrap">
-                                    {category}
-                                </Button>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper> */}
+            <section id="tabs" className="w-full items-center px-4 md:px-0 mt-5">
+                <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden gap-x-2 mx-auto w-full py-5 flex justify-between px-5">
                     {categories.map((category, i) => (
                         <Button key={i} type="success" className="whitespace-nowrap">
                             {category}
@@ -103,43 +117,57 @@ export default function Home() {
                 </div>
             </section>
             <section id="testimonial" className="w-full flex items-center">
-                <div className="max-w-screen-xl mx-auto py-5">
-                    <Carousel
-                        items={new Array(20).fill(undefined).map((_, i) => (
-                            <div key={i} className="flex flex-col px-4 py-6 shadow-lg bg-honeydew w-fit rounded-md">
-                                <div className="flex flex-col items-center gap-x-3">
-                                    <div className="w-16 h-16 rounded-full overflow-hidden">
-                                        <Image alt="avatar" src="/images/dummy/avatar.jpg" width={64} height={64} />
-                                    </div>
-                                    <h1 className="text-lg font-bold mt-2">Achmad Tirto Sudiro</h1>
-                                </div>
-                                <p className="font-semibold text-center mb-4">5.5/10</p>
-                                <p className="text-justify">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, assumenda. Tenetur impedit beatae quos minus? Et, tenetur repellendus porro, rem iusto nisi ex,
-                                    error possimus reprehenderit consectetur amet necessitatibus voluptate.
-                                </p>
-                            </div>
-                        ))}
-                    />
-                    {/* <Swiper slidesPerView={5} navigation grabCursor modules={[Navigation]}>
-                        {new Array(10).fill(undefined).map((_, i) => (
-                            <SwiperSlide key={i}>
-                                <div className="flex flex-col px-4 py-6 shadow-lg bg-honeydew w-80 rounded-md">
+                <div className="max-w-screen-xl mx-auto py-16">
+                    <br />
+                    <div className="flex flex-col lg:flex-row gap-y-4 items-center justify-evenly text-center">
+                        <h1 className="text-4xl font-black uppercase">
+                            Apa kata <span className="text-honeydew stroke-black">mereka</span>?
+                        </h1>
+                        <div className="flex gap-x-4">
+                            <Button
+                                disabled={activePageIndex === 0}
+                                onClick={prevPage}
+                                type="success"
+                                className="z-30 flex items-center justify-center h-full rounded-full p-2 md:p-2 cursor-pointer group focus:outline-none"
+                            >
+                                <IconChevronLeft />
+                            </Button>
+
+                            <Button
+                                disabled={activePageIndex === totalPages}
+                                onClick={nextPage}
+                                type="success"
+                                className="z-30 flex items-center justify-center h-full rounded-full p-2 md:p-2 cursor-pointer group focus:outline-none"
+                            >
+                                <IconChevronRight />
+                            </Button>
+                        </div>
+                    </div>
+                    <br />
+                    <div className="container max-w-screen-xl w-full mx-auto flex items-center justify-between">
+                        <div
+                            style={{ scrollBehavior: "smooth" }}
+                            ref={carouselContainerRef}
+                            className="hide-scrollbar max-w-xs flex md:max-w-md lg:max-w-full w-full select-none gap-10 overflow-auto cursor-grab"
+                        >
+                            {new Array(totalPages).fill(undefined).map((_, i) => (
+                                // flex w-full max-w-sm shrink-0 flex-col items-start justify-between gap-4 p-10 font-mulish text-black md:aspect-square md:max-w-md lg:aspect-auto lg:gap-8 xl:aspect-square xl:max-w-lg
+                                <div key={i} className="flex flex-col px-4 py-6 bg-honeydew w-80 aspect-square rounded-md flex-none">
                                     <div className="flex flex-col items-center gap-x-3">
-                                        <div className="w-12 h-12 rounded-full overflow-hidden">
-                                            <Image alt="avatar" src="/images/dummy/avatar.jpg" width={48} height={48} />
+                                        <div className="w-16 h-16 rounded-full overflow-hidden">
+                                            <Image alt="avatar" src="/images/dummy/avatar.jpg" width={64} height={64} />
                                         </div>
-                                        <h1 className="text-lg font-bold">Achmad Tirto Sudiro</h1>
+                                        <h1 className="text-lg font-bold mt-2">Achmad Tirto Sudiro</h1>
                                     </div>
                                     <p className="font-semibold text-center mb-4">5.5/10</p>
-                                    <p>
+                                    <p className="text-justify">
                                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, assumenda. Tenetur impedit beatae quos minus? Et, tenetur repellendus porro, rem iusto nisi ex,
                                         error possimus reprehenderit consectetur amet necessitatibus voluptate.
                                     </p>
                                 </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper> */}
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="features" className="w-full items-center">
