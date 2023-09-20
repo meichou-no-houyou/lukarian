@@ -29,7 +29,7 @@ export default function Search() {
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, illum totam quia consequatur voluptatibus minus ab debitis optio, sit eligendi provident deserunt
                                         doloremque itaque? Ullam perferendis beatae tempore ad quae!
                                     </p>
-                                    <Button asAnchor href="/articles/lorem" type="info" className="flex items-center justify-center text-center gap-x-2">
+                                    <Button asAnchor href="/articles/luka-ringan" type="info" className="flex items-center justify-center text-center gap-x-2">
                                         <IconExternalLink />
                                         <p>Baca Ini</p>
                                     </Button>
