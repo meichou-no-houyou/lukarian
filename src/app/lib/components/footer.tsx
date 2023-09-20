@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LukarianIcon } from "../svg/LukarianIcon";
 
 export default function Footer() {
     return (
@@ -7,7 +7,7 @@ export default function Footer() {
                 <footer className="max-w-screen-xl w-full mx-auto grid grid-cols-1 grid-rows-2 gap-y-4 md:grid-rows-1 md:grid-cols-3 justify-between px-4 md:px-0">
                     <div className="flex flex-col gap-y-4 text-justify">
                         <div className="flex items-center gap-x-3 mb-2">
-                            <Image src="/images/icon.svg" className="w-9 h-9 md:w-12 md:h-12" width={52} height={52} alt="LukaRian Icon" />
+                            <LukarianIcon className="w-9 h-9 md:w-12 md:h-12" width={52} height={52} />
                             <h1 className="text-asparagus font-bold text-lg">
                                 Luka<span className="!text-pistachio">Rian</span>
                             </h1>
