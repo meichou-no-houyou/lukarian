@@ -128,7 +128,7 @@ export default function Home() {
                                 disabled={activePageIndex === 0}
                                 onClick={prevPage}
                                 type="success"
-                                className="z-30 flex items-center justify-center h-full rounded-full p-2 md:p-2 cursor-pointer group focus:outline-none"
+                                className="flex items-center justify-center h-full rounded-full p-2 md:p-2 cursor-pointer group focus:outline-none"
                             >
                                 <IconChevronLeft />
                             </Button>
@@ -137,7 +137,7 @@ export default function Home() {
                                 disabled={activePageIndex === totalPages}
                                 onClick={nextPage}
                                 type="success"
-                                className="z-30 flex items-center justify-center h-full rounded-full p-2 md:p-2 cursor-pointer group focus:outline-none"
+                                className="flex items-center justify-center h-full rounded-full p-2 md:p-2 cursor-pointer group focus:outline-none"
                             >
                                 <IconChevronRight />
                             </Button>
