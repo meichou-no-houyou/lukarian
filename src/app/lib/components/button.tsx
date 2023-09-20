@@ -17,6 +17,7 @@ export default function Button({
     onClick,
     asAnchor,
     href,
+    disabled,
 }: {
     children: React.ReactNode;
     type: keyof typeof colors;
@@ -24,6 +25,7 @@ export default function Button({
     onClick?: MouseEventHandler<HTMLButtonElement>;
     asAnchor?: boolean;
     href?: string;
+    disabled?: boolean;
 }) {
     const classes = mc(`${colors[type]} rounded-[10px] font-bold text-md`, `hover:opacity-80 focus:ring-4 focus:ring-opacity-25 focus:outline-none`, "py-2 px-3 md:py-2.5 md:px-5", className);
     return asAnchor ? (
@@ -31,7 +33,7 @@ export default function Button({
             {children}
         </Link>
     ) : (
-        <button onClick={onClick} className={classes}>
+        <button disabled={disabled ?? false} onClick={onClick} className={classes}>
             {children}
         </button>
     );
