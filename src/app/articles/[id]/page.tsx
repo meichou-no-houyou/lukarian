@@ -107,7 +107,7 @@ export default function ArticleView({ params }: { params: { id: string } }) {
                                     </div>
                                     <div className="flex flex-col">
                                         <h1 className="font-bold text-lg">{meta.verified_by.name}</h1>
-                                        <h2 className="font-normal text-sm gap-x-1 flex text-slate-600">
+                                        <h2 className="font-normal text-sm gap-x-1 flex items-center text-slate-600">
                                             <span className="text-pistachio">
                                                 <IconDiscountCheckFilled />
                                             </span>{" "}
