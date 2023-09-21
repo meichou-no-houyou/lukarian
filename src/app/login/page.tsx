@@ -2,6 +2,9 @@ import { IconBrandDiscord, IconBrandDiscordFilled, IconBrandFacebook, IconBrandF
 import Navbar from "../lib/components/navbar";
 import Link from "next/link";
 import Button from "../lib/components/button";
+import Image from "next/image";
+import { UndrawDoctor } from "../lib/svg/UndrawDoctor";
+import { UndrawDoctorSplash } from "../lib/svg/UndrawDoctorSplash";
 
 export default function Login() {
     return (
@@ -9,11 +12,13 @@ export default function Login() {
             <Navbar />
             <div className="h-[5rem]"></div>
 
-            <div className="w-full grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-3">
-                <div className="bg-honeydew w-full flex items-start px-12">
-                    <div className="max-w-lg mx-auto grid grid-rows-4 justify-center">
+            <div className="w-full grid grid-rows-4 grid-cols-1 md:grid-rows-1 md:grid-cols-3">
+                <div className="bg-honeydew w-full flex flex-col justify-evenly items-start px-12">
+                    <div className="max-w-lg mx-auto flex flex-col mb-auto">
                         <h1 className="mt-10 font-bold text-3xl text-center ">Selamat Datang Kembali</h1>
                         <p className="text-base text-justify">Kamu bisa melanjutkan perjalananmu mempelajari cara menangani luka dengan login terlebih dahulu.</p>
+                        <p className="py-8">Tidak punya akun? <Link href={"/"} className="text-blue-600 font-bold">Daftar</Link> sekarang</p>
+                        <UndrawDoctorSplash width={348} height={286} className="hidden md:block"></UndrawDoctorSplash>
                     </div>
                 </div>
                 <div className="flex items-center col-span-2 justify-center">
