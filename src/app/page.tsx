@@ -12,7 +12,7 @@ import { UndrawSelectedOptions } from "./lib/svg/UndrawSelectedOptions";
 import { UndrawDoctor } from "./lib/svg/UndrawDoctor";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight, IconCircleCheckFilled, IconDiscountCheckFilled, IconEyeFilled, IconHeartFilled } from "@tabler/icons-react";
 
 export default function Home() {
     useEffect(() => {
@@ -27,8 +27,18 @@ export default function Home() {
             title: "Tepat Dalam Menangani",
             description: "Selamat tinggal miskonsepsi medis! Dengan aplikasi LukaRian, kalian bisa menambah wawasan mengenai penanganan luka yang benar dan tepat.",
             component: (
-                <div key={1} data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
-                    <UndrawSelectedOptions />
+                <div data-aos="fade-left" className="w-full flex items-center p-6 rounded-md">
+                    <div className="w-full bg-honeydew rounded-lg shadow-lg p-4">
+                        <div className="w-full bg-white p-4 rounded-lg shadow prose">
+                            <h1 className="font-black text-3xl">Solusi</h1>
+                            <ol type="1">
+                                <li>Bersihkan luka terlebih dahulu dengan air bersih atau dengan larutan garam hingga bersih</li>
+                                <li>Oleskan antibiotik untuk membuat luka tetap lembap, sehingga mempercepat penyembuhan</li>
+                                <li>Tutup luka dengan kasa steril yang lembut atau plester dan ganti plester setiap hari</li>
+                                <li>Jika perdarahan luka tidak berhenti dan area luka terasa kebas segera periksakan ke dokter.</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             ),
         },
@@ -36,8 +46,30 @@ export default function Home() {
             title: "Terverifikasi Ahli",
             description: "Semua artikel yang tersedia disini sudah terverifikasi ahli dan dijamin kepercayaannya. Merasa artikel tidak valid? Laporkan di pusat bantuan.",
             component: (
-                <div key={2} data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
-                    <UndrawSelectedOptions />
+                <div data-aos="fade-left" className="w-full flex items-center p-6 rounded-md">
+                    <div className="w-full bg-honeydew rounded-lg shadow-lg p-4">
+                        <div className="w-full bg-white p-2 rounded-lg shadow prose">
+                            <div className="w-full rounded-lg p-4 flex justify-between bg-honeydew">
+                                <div className="flex flex-col">
+                                    <h1 className="font-bold text-2xl">Artikel Ini Diverifikasi Oleh</h1>
+                                    <div className="flex gap-x-4 items-center justify-center flex-col md:flex-row">
+                                        <div className="w-20 h-20 rounded-full my-auto">
+                                            <Image width={75} height={75} src="/images/avatar/ahmad-jumadi.jpg" alt="User Avatar" className="rounded-full my-auto" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <h1 className="font-bold text-lg mb-auto">Dr. Ahmad Jumadi, S.Kom, M.Kom</h1>
+                                            <h2 className="font-normal text-sm gap-x-1 my-auto flex items-center text-slate-600">
+                                                <span className="text-pistachio">
+                                                    <IconDiscountCheckFilled />
+                                                </span>{" "}
+                                                Terverifikasi pada 30 September 2023
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             ),
         },
@@ -46,7 +78,7 @@ export default function Home() {
             description:
                 "Dengan LukaRian kalian bisa berbagi cara penanganan luka yang benar dan tepat. Semua orang bisa berkontribusi untuk membantu orang lain yang nantinya akan diverifikasi validitasnya oleh ahli.",
             component: (
-                <div key={3} data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
+                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
                     <UndrawSelectedOptions />
                 </div>
             ),
@@ -114,11 +146,7 @@ export default function Home() {
                     <br />
                     <div className="flex flex-col lg:flex-row gap-y-4 items-center justify-evenly text-center">
                         <h1 className="text-4xl font-black uppercase">
-                            Apa kata{" "}
-                            <span className="text-honeydew" style={{ WebkitTextStroke: "0.1px black" }}>
-                                mereka
-                            </span>
-                            ?
+                            Apa kata <span className="text-honeydew">mereka</span>?
                         </h1>
                         <div className="flex gap-x-4">
                             <Button
@@ -180,18 +208,19 @@ export default function Home() {
                         ))}
                         <p className="mt-2 text-night">{features[currentFeature].description}</p>
                     </nav>
-                    <div className="w-full flex flex-col gap-y-60">
+                    <div className="w-full flex flex-col gap-y-96">
                         {features.map((feature, i) => (
                             <>
                                 <Observer
+                                    key={i}
                                     observerOptions={{
-                                        rootMargin: "25px",
+                                        rootMargin: "0px",
                                         threshold: 0.1,
                                     }}
                                     onChange={(inView) => {
                                         inView && setCurrentFeature(i);
                                     }}
-                                    className="w-fit ml-auto overflow-hidden"
+                                    className="w-3/4 ml-auto flex overflow-hidden"
                                 >
                                     {feature.component}
                                 </Observer>
