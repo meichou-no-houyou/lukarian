@@ -1,9 +1,20 @@
+"use client";
 import { IconSearch } from "@tabler/icons-react";
 import Button from "./button";
-import Image from "next/image";
 import { LukarianIcon } from "../svg/LukarianIcon";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+    const params = useSearchParams();
+    const [query, setQuery] = useState(params.get("q") ?? "");
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!router || !query) return;
+        router.replace(`/search?q=${encodeURIComponent(query)}`);
+    }, [router, query]);
+
     return (
         <>
             <div className="w-full fixed top-0 items-center bg-honeydew z-10">
@@ -20,6 +31,8 @@ export default function Navbar() {
                                 className="focus:outline-none focus:ring-2 focus:ring-opacity-40 focus:ring-success h-8 px-2 rounded-l-md bg-teagreen"
                                 type="text"
                                 placeholder="Cari artikel"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
                             ></input>
                             <button className="h-8 px-2 rounded-r-md bg-teagreen text-white font-bold border-l-slate-400 border-l-2">
                                 <IconSearch />

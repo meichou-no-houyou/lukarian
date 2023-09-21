@@ -91,7 +91,7 @@ export default function Home() {
                         </p>
                         <div>
                             <Button asAnchor href="/login" type="success" className="mr-auto">
-                                Join Now
+                                Gabung sekarang!
                             </Button>
                         </div>
                     </div>
@@ -101,9 +101,9 @@ export default function Home() {
                 </div>
             </section>
             <section id="tabs" className="w-full items-center px-4 md:px-0 mt-5">
-                <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden gap-x-2 mx-auto w-full py-5 flex justify-center gap-x-10 px-5">
+                <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden mx-auto w-full py-5 flex justify-center space-x-10 px-5">
                     {categories.map((category, i) => (
-                        <Button asAnchor href="/search" key={i} type="success" className="whitespace-nowrap">
+                        <Button asAnchor href={`/search/${category}`} key={i} type="success" className="whitespace-nowrap">
                             {category}
                         </Button>
                     ))}
@@ -114,7 +114,11 @@ export default function Home() {
                     <br />
                     <div className="flex flex-col lg:flex-row gap-y-4 items-center justify-evenly text-center">
                         <h1 className="text-4xl font-black uppercase">
-                            Apa kata <span className="text-honeydew stroke-black">mereka</span>?
+                            Apa kata{" "}
+                            <span className="text-honeydew" style={{ WebkitTextStroke: "0.1px black" }}>
+                                mereka
+                            </span>
+                            ?
                         </h1>
                         <div className="flex gap-x-4">
                             <Button
