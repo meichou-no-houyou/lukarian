@@ -10,7 +10,7 @@ export default function Search() {
     const matchedArticles = articles.filter((x) => x.title.toLowerCase().includes(query.toLowerCase()));
     return (
         <>
-            <div className="flex items-center w-full py-6 px-4 md:px-0">
+            <div className="flex items-center w-full py-6 px-4 lg:px-0">
                 <div className="mx-auto items-center md:items-start w-full max-w-screen-xl flex flex-col gap-y-6">
                     <div className="flex gap-x-2 items-center">
                         <h1 className="text-3xl font-semibold">Hasil Pencarian: {query}</h1>

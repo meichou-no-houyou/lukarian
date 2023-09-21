@@ -18,7 +18,7 @@ export default function Navbar() {
     return (
         <>
             <div className="w-full fixed top-0 items-center bg-honeydew z-10">
-                <nav className="max-w-screen-xl mx-auto w-full py-4 px-5 md:px-0 flex justify-between">
+                <nav className="max-w-screen-xl mx-auto w-full py-4 px-5 lg:px-0 flex justify-between">
                     <Button asAnchor href="/" type="transparent" className="flex items-center gap-x-3 p-0 md:p-0">
                         <LukarianIcon className="w-9 h-9 md:w-12 md:h-12" width={52} height={52} />
                         <h1 className="text-asparagus font-bold text-sm md:text-md">

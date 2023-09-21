@@ -9,7 +9,7 @@ export default function SearchCategory({ params }: { params: { category: string 
     const matchedArticles = articles.filter((x) => x.category === decodeURIComponent(params.category));
     return (
         <>
-            <div className="flex items-center w-full py-6 px-4 md:px-0">
+            <div className="flex items-center w-full py-6 px-4 lg:px-0">
                 <div className="mx-auto items-center md:items-start w-full max-w-screen-xl flex flex-col gap-y-6">
                     <div className="flex gap-x-2 items-center">
                         <Link href="/" className="text-3xl font-semibold">

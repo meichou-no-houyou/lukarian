@@ -19,7 +19,7 @@ export default function ArticleView({ params }: { params: { id: string } }) {
     return (
         <>
             <Navbar />
-            <section id="article" className="w-full items-center py-16 px-4 md:px-0">
+            <section id="article" className="w-full items-center py-16 px-4 lg:px-0">
                 <div className="max-w-screen-md mx-auto w-full py-16 flex flex-col items-start gap-y-4">
                     <Button onClick={() => router.back()} type="transparent" className="flex items-center p-0 md:p-0 gap-x-4">
                         <IconArrowLeft /> Kembali
@@ -34,9 +34,9 @@ export default function ArticleView({ params }: { params: { id: string } }) {
                     <div className="prose w-full">
                         <MDXProvider>{content}</MDXProvider>
                     </div>
-                    <div className="w-full rounded-lg p-4 flex justify-between bg-honeydew">
+                    <div className="w-full rounded-lg p-4 flex justify-center md:justify-start bg-honeydew">
                         <div className="flex flex-col gap-y-2">
-                            <h1 className="font-bold text-2xl">Statistik Artikel Ini</h1>
+                            <h1 className="font-bold text-2xl text-center md:text-start">Statistik Artikel Ini</h1>
                             <div className="flex gap-x-4 items-center justify-center flex-col md:flex-row">
                                 <div className="w-20 h-20 rounded-full overflow-hidden">
                                     <Image width={75} height={75} src={meta.author.avatar} alt="User Avatar" className="rounded-full" />
@@ -98,7 +98,7 @@ export default function ArticleView({ params }: { params: { id: string } }) {
                         </div>
                     </div>
                     {meta.is_verified && meta.verified_by && (
-                        <div className="w-full rounded-lg p-4 flex justify-between bg-honeydew">
+                        <div className="w-full rounded-lg p-4 flex justify-center md:justify-start bg-honeydew mx-auto">
                             <div className="flex flex-col gap-y-2">
                                 <h1 className="font-bold text-2xl">Artikel Ini Diverifikasi Oleh</h1>
                                 <div className="flex gap-x-4 items-center justify-center flex-col md:flex-row">

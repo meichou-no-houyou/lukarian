@@ -120,7 +120,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <section id="hero" className="w-full items-center bg-honeydew pt-14 px-4 md:px-0">
+            <section id="hero" className="w-full items-center bg-honeydew pt-14 px-4 lg:px-0">
                 <div className="max-w-screen-xl mx-auto w-full py-14 grid grid-cols-4 md:grid-cols-7 justify-between items-start">
                     <div className="col-span-4 flex flex-col gap-y-4">
                         <h1 className="font-bold text-3xl md:text-5xl w-full md:w-96 tracking-wide">Menemanimu Mengatasi Luka Harianmu</h1>
@@ -134,12 +134,12 @@ export default function Home() {
                             </Button>
                         </div>
                     </div>
-                    <div className="hidden md:block col-span-3 ml-auto mr-5">
+                    <div className="hidden lg:block col-span-3 ml-auto mr-5">
                         <UndrawDoctor width={350} height={350} />
                     </div>
                 </div>
             </section>
-            <section id="tabs" className="w-full items-center px-4 md:px-0 mt-5">
+            <section id="tabs" className="w-full items-center px-4 lg:px-0 mt-5">
                 <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden mx-auto w-full py-5 flex justify-center space-x-10 px-5">
                     {categories.map((category, i) => (
                         <Button asAnchor href={`/search/${category}`} key={i} type="success" className="whitespace-nowrap">
@@ -148,8 +148,8 @@ export default function Home() {
                     ))}
                 </div>
             </section>
-            <section id="testimonial" className="w-full flex items-center">
-                <div className="max-w-screen-xl mx-auto py-16">
+            <section id="testimonial" className="w-full max-w-full flex items-center">
+                <div className="max-w-screen-md xl:max-w-screen-xl mx-auto py-16">
                     <br />
                     <div className="flex flex-col lg:flex-row gap-y-4 items-center justify-evenly text-center">
                         <h1 className="text-4xl font-black uppercase">
@@ -176,11 +176,11 @@ export default function Home() {
                         </div>
                     </div>
                     <br />
-                    <div className="container max-w-screen-xl w-full mx-auto flex items-center justify-between">
+                    <div className="w-full mx-auto flex items-center justify-between overflow-auto max-w-screen-xl">
                         <div
                             style={{ scrollBehavior: "smooth" }}
                             ref={carouselContainerRef}
-                            className="hide-scrollbar max-w-xs flex md:max-w-md lg:max-w-full w-full select-none gap-10 overflow-auto cursor-grab"
+                            className="hide-scrollbar max-w-xs flex md:max-w-xs lg:max-w-full w-full select-none gap-10 overflow-auto cursor-grab"
                         >
                             {new Array(totalPages).fill(undefined).map((_, i) => (
                                 <div key={i} className="flex flex-col px-4 py-6 bg-honeydew w-80 aspect-square rounded-md flex-none">

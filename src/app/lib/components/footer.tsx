@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <>
             <div className="bg-honeydew w-full flex items-center py-8">
-                <footer className="max-w-screen-xl w-full mx-auto grid grid-cols-1 grid-rows-2 gap-y-4 md:grid-rows-1 md:grid-cols-3 justify-between px-4 md:px-0">
+                <footer className="max-w-screen-xl w-full mx-auto grid grid-cols-1 grid-rows-2 gap-y-4 lg:grid-rows-1 lg:grid-cols-3 justify-between px-4 lg:px-0">
                     <div className="flex flex-col gap-y-4 text-justify">
                         <div className="flex items-center gap-x-3 mb-2">
                             <LukarianIcon className="w-9 h-9 md:w-12 md:h-12" width={52} height={52} />
@@ -21,7 +21,7 @@ export default function Footer() {
                             sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat.
                         </p>
                     </div>
-                    <div className="flex gap-x-4 col-span-2 ml-auto justify-items-end">
+                    <div className="flex gap-x-4 col-span-2 lg:ml-auto lg:justify-normal justify-between">
                         <div className="text-night">
                             <h1 className="uppercase font-bold text-lg">Tentang Kami</h1>
                             <ul className="flex flex-col gap-y-1 mt-2">
