@@ -4,13 +4,6 @@ import Footer from "./lib/components/footer";
 import Button from "./lib/components/button";
 import Observer from "./lib/components/observer";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/effect-cards";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Navigation } from "swiper/modules";
-
 // AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
