@@ -12,12 +12,15 @@ import { UndrawSelectedOptions } from "./lib/svg/UndrawSelectedOptions";
 import { UndrawDoctor } from "./lib/svg/UndrawDoctor";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { IconChevronLeft, IconChevronRight, IconCircleCheckFilled, IconDiscountCheckFilled, IconEyeFilled, IconHeartFilled } from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight, IconDiscountCheckFilled } from "@tabler/icons-react";
+import { UndrawQuestion } from "./lib/svg/UndrawQuestion";
+import { UndrawSharingKnowledge } from "./lib/svg/UndrawSharingKnowledge";
+import { UndrawScientist } from "./lib/svg/UndrawScientist";
 
 export default function Home() {
     useEffect(() => {
         AOS.init({
-            duration: 250,
+            duration: 500,
         });
     }, []);
 
@@ -41,6 +44,7 @@ export default function Home() {
                     </div>
                 </div>
             ),
+            mobileComponent: <UndrawQuestion className="mx-auto" width={250} height={250} />,
         },
         {
             title: "Terverifikasi Ahli",
@@ -72,16 +76,19 @@ export default function Home() {
                     </div>
                 </div>
             ),
+            mobileComponent: <UndrawScientist className="mx-auto" width={250} height={250} />,
         },
         {
             title: "Berbagi Cara Penanganan",
             description:
                 "Dengan LukaRian kalian bisa berbagi cara penanganan luka yang benar dan tepat. Semua orang bisa berkontribusi untuk membantu orang lain yang nantinya akan diverifikasi validitasnya oleh ahli.",
             component: (
-                <div data-aos="fade-left" className="mx-auto flex items-center shadow-lg p-6 rounded-md">
-                    <UndrawSelectedOptions />
+                <div data-aos="fade-left" className="mx-auto flex items-center flex-col p-6 rounded-md">
+                    <UndrawScientist className="mx-auto" width={450} height={450} />
+                    <h1 className="font-bold text-xl">LukaRian terbuka untuk semua kalangan! Mulai membuat artikel yang membantu sekarang!</h1>
                 </div>
             ),
+            mobileComponent: <UndrawSharingKnowledge className="mx-auto" width={250} height={250} />,
         },
     ];
 
@@ -176,7 +183,6 @@ export default function Home() {
                             className="hide-scrollbar max-w-xs flex md:max-w-md lg:max-w-full w-full select-none gap-10 overflow-auto cursor-grab"
                         >
                             {new Array(totalPages).fill(undefined).map((_, i) => (
-                                // flex w-full max-w-sm shrink-0 flex-col items-start justify-between gap-4 p-10 font-mulish text-black md:aspect-square md:max-w-md lg:aspect-auto lg:gap-8 xl:aspect-square xl:max-w-lg
                                 <div key={i} className="flex flex-col px-4 py-6 bg-honeydew w-80 aspect-square rounded-md flex-none">
                                     <div className="flex flex-col items-center gap-x-3">
                                         <div className="w-16 h-16 rounded-full overflow-hidden">
@@ -196,8 +202,11 @@ export default function Home() {
                 </div>
             </section>
             <section id="features" className="w-full items-center">
-                <div className="h-[10rem]"></div>
-                <div className="max-w-screen-xl mx-auto w-full py-5 justify-between items-start hidden md:flex">
+                <div className="h-[5rem] lg:h-[10rem]"></div>
+                <h1 className="text-center font-black uppercase text-3xl w-96 mx-auto">
+                    Apa yang akan kamu dapatkan di <span className="text-honeydew text-4xl">LukaRian</span>?
+                </h1>
+                <div className="max-w-screen-xl mx-auto w-full py-5 justify-between items-start hidden lg:flex">
                     <nav className="sticky top-32">
                         {features.map((feature, i) => (
                             <div key={i} className={""}>
@@ -228,7 +237,23 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
+                <div className="max-w-screen-xl mx-auto w-full py-5 flex flex-col gap-y-5 items-center justify-center lg:hidden">
+                    {/* <div data-aos="fade-left" className="w-96 gap-y-4 flex-col flex justify-center items-center p-6 rounded-md bg-honeydew">
+                        {features[0].mobileComponent}
+                        <h1 className="font-bold text-2xl text-center">{features[0].title}</h1>
+                        <p className="text-justify">{features[0].description}</p>
+                    </div> */}
+                    {features.map((feature, i) => (
+                        <div key={i} data-aos="fade-left" className="w-96 gap-y-4 flex-col flex justify-center items-center p-6 rounded-md bg-honeydew">
+                            {feature.mobileComponent}
+                            <h1 className="font-bold text-2xl text-center">{feature.title}</h1>
+                            <p className="text-justify">{feature.description}</p>
+                        </div>
+                    ))}
+                </div>
             </section>
+            <br></br>
+            <br></br>
             <Footer />
         </>
     );
