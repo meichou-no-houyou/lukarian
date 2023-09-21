@@ -85,7 +85,7 @@ export default function ArticleView({ params }: { params: { id: string } }) {
                                         <span>
                                             <IconEyeFilled />
                                         </span>{" "}
-                                        {meta.trust_score}
+                                        {meta.view}
                                     </span>
                                     <span
                                         className="group-hover:opacity-100 transition-opacity bg-pistachio px-2 py-2 text-sm font-bold rounded-md absolute left-1/2 
