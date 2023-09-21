@@ -8,6 +8,15 @@ declare module '*.mdx' {
         author: {
             name: string;
             avatar: string;
+        };
+        is_verified: boolean;
+        like: number;
+        view: number;
+        trust_score: number;
+        verified_by?: {
+            name: string;
+            avatar: string;
+            verified_at: string;
         }
     }
 }
