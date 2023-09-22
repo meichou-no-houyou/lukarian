@@ -17,15 +17,15 @@ export default function Login() {
                     <div className="px-12 mx-auto flex flex-col gap-y-2">
                         <div className="h-[2.5rem]"></div>
                         <h1 className="font-bold text-3xl">Selamat Datang</h1>
-                        <p>Bergabunglah dengan LukaRian! Daftarkan diri Anda sekarang untuk mendapatkan akses eksklusif untuk informasi terbaru.</p>
-                        <p className="py-8">Sudah punya akun? <span className="text-blue-700 font-bold"><Link href="/login">Masuk</Link></span> sekarang!</p>
+                        <p>Kamu bisa melanjutkan perjalananmu mempelajari cara menangani luka dengan <span className="font-bold">login</span> terlebih dahulu.</p>
+                        <p className="py-8">Tidak punya akun? <span className="text-blue-700 font-bold"><Link href="/register">Daftar</Link></span> sekarang!</p>
                         <UndrawDoctorSplash width={348} height={286} className="hidden md:block"></UndrawDoctorSplash>
                     </div>
                 </div>
                 <div className="flex items-center justify-center flex-1">
                     <div className="h-screen"></div>
 
-                    <form>
+                    <form action="/profile">
                         <div className=" flex flex-col items-center ">
                             <h1 className="font-bold text-center text-4xl">Masuk</h1>
                             <br />
@@ -44,8 +44,8 @@ export default function Login() {
 
                             </div>
                             <br />
-                            <input type="text" className="rounded-md mb-2 w-80 h-9 border-slate-500 border px-2" placeholder="Username" />
-                            <input type="password" className="rounded-md mb-2 w-80 h-9 border-slate-500 border px-2" placeholder="Password" />
+                            <input type="text" className="rounded-md mb-2 w-80 h-9 border-slate-500 border px-2" placeholder="Username" required />
+                            <input type="password" className="rounded-md mb-2 w-80 h-9 border-slate-500 border px-2" placeholder="Password" required />
                             <br />
                             <p className="font-bold text-sm text-center">Lupa Password? <Link href={""} className="text-blue-600">Reset</Link> disini</p>
                             <br />
