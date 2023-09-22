@@ -3,7 +3,7 @@ import { SVGProps } from "react";
 export function UndrawSharingKnowledge({ ...props }: SVGProps<SVGSVGElement>) {
     return (
         <svg width="462" height="420" viewBox="0 0 462 420" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-            <g clip-path="url(#clip0_86_746)">
+            <g clipPath="url(#clip0_86_746)">
                 <path
                     d="M222.061 84.1583C227.205 78.9201 234.074 77.3299 237.405 80.6063C240.736 83.8826 239.265 90.7838 234.12 96.0233C232.093 98.1445 229.588 99.749 226.814 100.703L204.741 122.622L194.684 112.037L217.511 91.5519C218.416 88.7591 219.976 86.2238 222.061 84.1583Z"
                     fill="#FFB6B6"
