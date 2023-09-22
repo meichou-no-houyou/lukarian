@@ -139,7 +139,7 @@ export default function Home() {
                 </div>
             </section>
             <section id="tabs" className="w-full items-center px-4 lg:px-0 mt-5">
-                <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden mx-auto w-full py-5 flex justify-center gap-x-2">
+                <div className="max-w-screen-xl w-fit bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden mx-auto px-4 py-5 flex flex-wrap gap-y-4 justify-center gap-x-2">
                     {categories.map((category, i) => (
                         <Button asAnchor href={`/search/${category}`} key={i} type="success" className="whitespace-nowrap text-sm md:text-lg">
                             {category}
