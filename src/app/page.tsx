@@ -8,7 +8,6 @@ import Observer from "./lib/components/observer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { UndrawSelectedOptions } from "./lib/svg/UndrawSelectedOptions";
 import { UndrawDoctor } from "./lib/svg/UndrawDoctor";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -24,7 +23,7 @@ export default function Home() {
         });
     }, []);
 
-    const categories = ["Luka Sayat", "Luka Baret", "Luka Bakar", "Luka Memar", "Luka Sengat"];
+    const categories = ["Luka Sayat", "Luka Lecet", "Luka Bakar", "Luka Memar", "Luka Sengat"];
     const features = [
         {
             title: "Tepat Dalam Menangani",
