@@ -1,3 +1,7 @@
+"use client"
+
+import { articles } from "@/app/lib/articles";
+import ArticleCard from "@/app/lib/components/articlecard";
 import Navbar from "../lib/components/navbar";
 import Image from "next/image";
 import { IconEdit } from "@tabler/icons-react";
@@ -5,6 +9,8 @@ import Button from "../lib/components/button";
 
 export default function Profile() {
     const navs = ["Your Articles", "Liked", "History"];
+    const matchedArticles = articles.map((x) => x);
+
     return (
         <>
             <Navbar />
@@ -12,7 +18,7 @@ export default function Profile() {
             <div style={{ backgroundImage: `url(/images/dummy/banner.png)` }} className="bg-cover bg-no-repeat bg-center  relative w-full h-96">
                 <div className="absolute w-full h-full inset-x-0 inset-y-0 bg-gradient-to-t from-black z-0"></div>
                 <div className="flex items-center w-full h-full bottom-0">
-                    <div className="flex flex-col justify-end max-w-screen-xl w-full h-full mx-auto z-10">
+                    <div className="flex flex-col justify-end max-w-screen-xl w-full h-full mx-auto z-0">
                         <div className="flex gap-x-4">
                             <Image src="/images/dummy/avatar.jpg" alt="Avatar" width={150} height={150} className="rounded-t-md shadow" />
                             <div className="col-span-2 text-white self-end">
@@ -33,8 +39,8 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-            <section id="tabs" className="w-full items-center bg-teagreen px-4 md:px-0">
-                <div className="max-w-screen-xl overflow-x-scroll md:overflow-x-hidden gap-x-2 mx-auto w-full py-5 flex justify-evenly">
+            <section id="tabs" className="w-full items-center bg-teagreen px-4 md:px-0 mb-5">
+                <div className="max-w-screen-xl overflow-x-scroll md:overflow-x-hidden gap-x-5 mx-auto w-full py-5 flex">
                     {navs.map((nav, i) => (
                         <Button key={i} type="success" className="whitespace-nowrap">
                             {nav}
@@ -42,6 +48,12 @@ export default function Profile() {
                     ))}
                 </div>
             </section>
+            {/* Card */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-screen-xl mx-10">
+                {matchedArticles.map((article, i) => (
+                    <ArticleCard created_at={article.created_at} key={i} link={`/articles/${article.id}`} summary={article.summary} title={article.title} user={article.author} />
+                ))}
+            </div>
         </>
     );
 }
