@@ -43,7 +43,7 @@ export default function Home() {
                     </div>
                 </div>
             ),
-            mobileComponent: <UndrawQuestion className="mx-auto" width={250} height={250} />,
+            mobileComponent: <UndrawQuestion className="mx-auto" width={200} height={200} />,
         },
         {
             title: "Terverifikasi Ahli",
@@ -139,19 +139,19 @@ export default function Home() {
                 </div>
             </section>
             <section id="tabs" className="w-full items-center px-4 lg:px-0 mt-5">
-                <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden mx-auto w-full py-5 flex justify-center space-x-10 px-5">
+                <div className="max-w-screen-xl bg-teagreen rounded-lg overflow-x-scroll md:overflow-x-hidden mx-auto w-full py-5 flex justify-center gap-x-2">
                     {categories.map((category, i) => (
-                        <Button asAnchor href={`/search/${category}`} key={i} type="success" className="whitespace-nowrap">
+                        <Button asAnchor href={`/search/${category}`} key={i} type="success" className="whitespace-nowrap text-sm md:text-lg">
                             {category}
                         </Button>
                     ))}
                 </div>
             </section>
-            <section id="testimonial" className="w-full max-w-full flex items-center">
-                <div className="max-w-screen-md xl:max-w-screen-xl mx-auto py-16">
+            <section id="testimonial" className="w-full md:max-w-full max-w-screen-sm flex justify-center items-center">
+                <div className="w-full py-16">
                     <br />
                     <div className="flex flex-col lg:flex-row gap-y-4 items-center justify-evenly text-center">
-                        <h1 className="text-4xl font-black uppercase">
+                        <h1 className="text-3xl md:text-4xl font-black uppercase">
                             Apa kata <span className="text-honeydew">mereka</span>?
                         </h1>
                         <div className="flex gap-x-4">
@@ -175,14 +175,14 @@ export default function Home() {
                         </div>
                     </div>
                     <br />
-                    <div className="w-full mx-auto flex items-center justify-between overflow-auto max-w-screen-xl">
+                    <div className="w-full mx-auto flex items-center justify-center overflow-auto max-w-full">
                         <div
                             style={{ scrollBehavior: "smooth" }}
                             ref={carouselContainerRef}
                             className="hide-scrollbar max-w-xs flex md:max-w-xs lg:max-w-full w-full select-none gap-10 overflow-auto cursor-grab"
                         >
                             {new Array(totalPages).fill(undefined).map((_, i) => (
-                                <div key={i} className="flex flex-col px-4 py-6 bg-honeydew w-80 aspect-square rounded-md flex-none">
+                                <div key={i} className="flex flex-col px-4 py-6 bg-honeydew w-72 md:w-80 aspect-square rounded-md flex-none">
                                     <div className="flex flex-col items-center gap-x-3">
                                         <div className="w-16 h-16 rounded-full overflow-hidden">
                                             <Image alt="avatar" src="/images/dummy/avatar.jpg" width={64} height={64} />
@@ -202,9 +202,12 @@ export default function Home() {
             </section>
             <section id="features" className="w-full items-center">
                 <div className="h-[5rem] lg:h-[10rem]"></div>
-                <h1 className="text-center font-black uppercase text-3xl w-96 mx-auto">
-                    Apa yang akan kamu dapatkan di <span className="text-honeydew text-4xl">LukaRian</span>?
-                </h1>
+                <div className="flex items-center">
+                    <h1 className="text-center font-black uppercase text-xl md:text-3xl w-96 mx-auto">
+                        Apa yang akan kamu dapatkan di <span className="text-honeydew text-2xl md:text-4xl">LukaRian</span>?
+                    </h1>
+                </div>
+
                 <div className="max-w-screen-xl mx-auto w-full py-5 justify-between items-start hidden lg:flex">
                     <nav className="sticky top-32">
                         {features.map((feature, i) => (
@@ -236,14 +239,9 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-                <div className="max-w-screen-xl mx-auto w-full py-5 flex flex-col gap-y-5 items-center justify-center lg:hidden">
-                    {/* <div data-aos="fade-left" className="w-96 gap-y-4 flex-col flex justify-center items-center p-6 rounded-md bg-honeydew">
-                        {features[0].mobileComponent}
-                        <h1 className="font-bold text-2xl text-center">{features[0].title}</h1>
-                        <p className="text-justify">{features[0].description}</p>
-                    </div> */}
+                <div className="max-w-screen-xl mx-auto w-full py-5 flex flex-col gap-y-5 items-center justify-center lg:hidden overflow-hidden">
                     {features.map((feature, i) => (
-                        <div key={i} data-aos="fade-left" className="w-96 gap-y-4 flex-col flex justify-center items-center p-6 rounded-md bg-honeydew">
+                        <div key={i} data-aos="fade-left" className="w-80 mx-5 gap-y-4 flex-col flex justify-center items-center p-6 rounded-md bg-honeydew">
                             {feature.mobileComponent}
                             <h1 className="font-bold text-2xl text-center">{feature.title}</h1>
                             <p className="text-justify">{feature.description}</p>
