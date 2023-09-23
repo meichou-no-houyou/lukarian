@@ -55,9 +55,11 @@ export default function Navbar() {
                             </form>
                         </li>
                         <li>
-                            <Button type="success" className="px-4 py-1 md:py-1 md:px-4 mt-2 md:mt-0">
-                                Login
-                            </Button>
+                            <Link href="/login">
+                                <Button type="success" className="px-4 py-1 md:py-1 md:px-4 mt-2 md:mt-0">
+                                    Login
+                                </Button>
+                            </Link>
                         </li>
                     </ul>
                 </div>
