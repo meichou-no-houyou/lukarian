@@ -95,6 +95,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
+            <head>
+                <link type="application/json+oembed" href="https://lukarian.kuronushi.dev/oembed.json"></link>
+            </head>
             <body className={rubik.className}>{children}</body>
         </html>
     );
