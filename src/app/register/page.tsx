@@ -8,7 +8,7 @@ export default function Register() {
     return (
         <>
             <Navbar />
-            <div className="h-[5rem]"></div>
+            <div className="h-[4rem] md:h-[5rem]"></div>
 
             <div className="flex flex-col md:flex-row">
                 <div className="bg-honeydew w-full md:w-1/3 flex flex-col items-start">
@@ -16,7 +16,13 @@ export default function Register() {
                         <div className="h-[2.5rem]"></div>
                         <h1 className="font-bold text-3xl">Selamat Datang</h1>
                         <p>Bergabunglah dengan LukaRian! Daftarkan diri Anda sekarang untuk mendapatkan akses eksklusif untuk informasi terbaru.</p>
-                        <p className="py-8">Sudah punya akun? <span className="text-blue-700 font-bold"><Link href="/login">Masuk</Link></span> sekarang!</p>
+                        <p className="py-8">
+                            Sudah punya akun?{" "}
+                            <span className="text-blue-700 font-bold">
+                                <Link href="/login">Masuk</Link>
+                            </span>{" "}
+                            sekarang!
+                        </p>
                         <UndrawDoctorSplash width={348} height={286} className="hidden md:block"></UndrawDoctorSplash>
                     </div>
                 </div>
@@ -39,7 +45,6 @@ export default function Register() {
                                 <Button type="success" className="rounded-full p-2 md:p-2">
                                     <IconBrandFacebook />
                                 </Button>
-
                             </div>
                             <br />
                             <div className="flex flex-col md:flex-row w-full gap-x-2">
@@ -55,8 +60,8 @@ export default function Register() {
                             </div>
                         </div>
                     </form>
-                </div >
-            </div >
+                </div>
+            </div>
         </>
     );
 }

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { articles } from "@/app/lib/articles";
 import ArticleCard from "@/app/lib/components/articlecard";
@@ -33,7 +33,8 @@ export default function Profile() {
                                     </span>
                                 </h1>
                                 <p className="text-sm md:text-base">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula
+                                    consectetur, ultrices mauris.
                                 </p>
                             </div>
                         </div>

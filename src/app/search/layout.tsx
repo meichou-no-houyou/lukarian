@@ -1,6 +1,11 @@
 import React from "react";
 import Navbar from "../lib/components/navbar";
 import Footer from "../lib/components/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Search Result",
+};
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
