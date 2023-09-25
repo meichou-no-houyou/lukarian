@@ -13,12 +13,10 @@ export default function Footer() {
                             </h1>
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur,
-                            ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.
+                            LukaRian adalah panduan dan teman setia Anda dalam menghadapi luka sehari-hari. Kami menyediakan informasi yang jelas dan panduan langkah demi langkah untuk penanganan pertolongan pertama yang benar, sehingga Anda dapat menjaga kesehatan Anda dan mencegah agar kondisi luka tidak semakin memburuk.
                         </p>
                         <p>
-                            Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales
-                            sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat.
+                            Dengan LukaRian, Anda tidak perlu merasa cemas saat menghadapi luka kecil, kami ada di sini untuk membantu Anda tetap sehat dan kuat dalam setiap situasi. Temukan solusi yang Anda butuhkan bersama LukaRian!
                         </p>
                     </div>
                     <div className="flex gap-x-4 col-span-2 lg:ml-auto lg:justify-normal justify-between">

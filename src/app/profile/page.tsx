@@ -20,7 +20,7 @@ export default function Profile() {
                 <div className="flex items-center w-full h-full bottom-0">
                     <div className="flex flex-col justify-end max-w-screen-xl w-full h-full mx-auto z-0">
                         <div className="flex md:flex-row gap-x-4 items-center p-4 md:p-0">
-                            <div className="w-60 md:w-32 align-middle">
+                            <div className="w-60 md:w-36 align-middle">
                                 <Image src="/images/dummy/avatar.jpg" alt="Avatar" width={150} height={150} className="object-cover rounded-md w-16 h-16 md:w-44 md:h-32 mb-2 md:mb-0" />
                             </div>
                             <div className="text-white">
@@ -40,8 +40,8 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-            <section id="tabs" className="w-full items-center bg-teagreen px-4 md:px-0">
-                <div className="max-w-screen-xl md:overflow-x-hidden gap-x-5 mx-auto w-full py-5 flex">
+            <section id="tabs" className="w-full items-center bg-teagreen px-4 md:px-0 justify-center">
+                <div className="max-w-screen-xl md:overflow-x-hidden gap-x-5 md:mx-auto mx-4 w-full py-5 flex">
                     {navs.map((nav, i) => (
                         <Button key={i} type="success" className="whitespace-nowrap">
                             {nav}
@@ -49,6 +49,17 @@ export default function Profile() {
                     ))}
                 </div>
             </section>
+
+            {/* Tabs lama */}
+            {/* <section id="tabs" className="w-full items-center bg-teagreen px-4 md:px-0">
+                <div className="max-w-screen-xl overflow-x-scroll md:overflow-x-hidden gap-x-2 mx-auto w-full py-5 flex justify-evenly">
+                    {navs.map((nav, i) => (
+                        <Button key={i} type="success" className="whitespace-nowrap">
+                            {nav}
+                        </Button>
+                    ))}
+                </div>
+            </section> */}
             {/* Card */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-screen-xl mx-10 my-5">
                 {matchedArticles.map((article, i) => (
