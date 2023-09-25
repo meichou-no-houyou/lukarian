@@ -1,0 +1,15 @@
+x-common-general: &common-general
+  restart: unless-stopped
+
+services:
+  lukarian:
+    <<: *common-general
+    container_name: lukarian-app
+    image: ghcr.io/meichou-no-houyou/lukarian
+    networks:
+      - net
+    ports:
+      - "14045:80"
+
+networks:
+  net:

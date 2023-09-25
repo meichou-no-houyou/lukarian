@@ -38,4 +38,4 @@ COPY --from=build-stage /tmp/build/node_modules ./node_modules
 ENV NODE_ENV production
 
 # Start the app with node
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start", "--", "-p", "80"]
